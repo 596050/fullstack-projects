@@ -7,6 +7,10 @@ app.use(bodyParser.json());
 
 const events = [];
 
+app.get('/events', () => {
+  res.send(events);
+});
+
 app.post('/events', (req, res) => {
   const event = req.body;
 
@@ -28,10 +32,6 @@ app.post('/events', (req, res) => {
     });
 
   res.send({ status: 'OK' });
-});
-
-app.get('/events', () => {
-  res.send(events);
 });
 
 app.listen(4005, () => {

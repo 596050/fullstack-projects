@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2beta27
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./packages/infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: shroudedshrew/client
+      context: packages/clients/client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.js'
+            dest: .
+    - image: shroudedshrew/comments
+      context: packages/services/comments
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: shroudedshrew/posts
+      context: packages/services/posts
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: shroudedshrew/query
+      context: packages/services/query
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: shroudedshrew/event-bus
+      context: packages/services/event-bus
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .
+    - image: shroudedshrew/moderation
+      context: packages/services/moderation
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '*.js'
+            dest: .

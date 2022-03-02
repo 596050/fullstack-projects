@@ -1,0 +1,15 @@
+{
+  "name": "contacts-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "python3 manage.py runserver",
+    "update-db": "python3 manage.py makemigrations && python3 manage.py migrate",
+    "activate-venv": "source react_django/bin/activate",
+    "server-create-super-user": "python3 manage.py createsuperuser"
+  },
+  "author": "https://ultimatedjango.com/learn-django/lessons",
+  "license": "ISC"
+}

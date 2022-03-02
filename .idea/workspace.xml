@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d25d0bb3-83cb-405e-b8b2-9a66824d52ad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/client/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/client/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/client/style/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/models/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/models/lyric.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/models/song.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/schema/lyric_type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/schema/mutations.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/schema/root_query_type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/schema/schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/schema/song_type.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/server/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/Lyrical-GraphQL/webpack.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/users/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/users/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/users/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/users/schema/schema.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GraphQL with React: The Complete Developers Guide/users/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="25q9s5gx97j0oKuFkM0zhtx3rPW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d25d0bb3-83cb-405e-b8b2-9a66824d52ad" name="Changes" comment="" />
+      <created>1646243952606</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646243952606</updated>
+    </task>
+    <servers />
+  </component>
+</project>

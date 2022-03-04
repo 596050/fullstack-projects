@@ -1,0 +1,16 @@
+{
+  "name": "contacts-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-db": "cd server; python3 manage.py makemigrations && python3 manage.py migrate",
+    "activate-venv": "cd server; source venv/bin/activate",
+    "setup-server": "cd server; python3 -m venv venv && yarn activate-venv && python3 -m pip install django && python3 -m pip install djangorestframework",
+    "server-create-super-user": "cd server; python3 manage.py createsuperuser",
+    "start-server": "cd server; yarn activate-venv && yarn update-db && python3 manage.py runserver"
+  },
+  "author": "https://ultimatedjango.com/learn-django/lessons",
+  "license": "ISC"
+}

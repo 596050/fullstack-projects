@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import List from './components/List';
-import Details from './components/Details';
 import Form from './components/Form';
 import { useFetch } from './hooks/useFetch';
 import { API } from './api-service';
@@ -10,12 +10,20 @@ function App() {
   const [users, setUsers] = useState([]);
   const [selected, setSelected] = useState(null);
   const [data, loading, error] = useFetch();
+  const navigate = useNavigate();
+  let location = useLocation();
+
+  React.useEffect(() => {
+    console.log('location', location);
+  }, [location]);
 
   useEffect(() => {
     setUsers(data);
   }, [data]);
 
-  const handleOnCreateNewUser = () => {};
+  const handleOnCreateNewUser = () => {
+    navigate('/create-user', { replace: true });
+  };
 
   const handleCreate = user => {
     API.createUser(user)
@@ -49,13 +57,11 @@ function App() {
         <div>
           <List users={users} onRemove={handleRemove} />
         </div>
-        {/* <Details movie={selectedMovie} updateMovie={loadMovie} />
-        {editedMovie ? (
-          <Form movie={editedMovie} onCreate= handleCreate} />
-        ) : null} */}
       </div>
-      <div>
-        <button onClick={handleOnCreateNewUser}>Create user</button>
+      <div className="create-user-button-container">
+        <button className="create-user-button" onClick={handleOnCreateNewUser}>
+          Create user
+        </button>
       </div>
     </div>
   );

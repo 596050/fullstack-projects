@@ -1,5 +1,7 @@
+from http.client import HTTPResponse
 from rest_framework import serializers
 from .models import User, Contact
+import uuid
 
 
 class ContactSerializer(serializers.ModelSerializer):
@@ -28,3 +30,10 @@ class UserSerializer(serializers.ModelSerializer):
             "last_name",
             "contact_1"
         ]
+
+    def create(self, validated_data):
+        contact_1 = validated_data.pop('contact_1', None)
+        contact = Contact.objects.create(**contact_1)
+        instance = User.objects.create(contact_1=contact, **validated_data)
+        contact.save()
+        return instance

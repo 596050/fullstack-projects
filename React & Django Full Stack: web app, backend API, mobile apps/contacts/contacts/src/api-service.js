@@ -10,6 +10,10 @@ export class API {
   static createUser(body) {
     return fetch(`${USER_API_URL}/`, {
       method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(body),
     }).then(resp => resp.json());
   }

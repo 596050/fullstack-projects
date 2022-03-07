@@ -1,8 +1,7 @@
 .App {
   padding: 20px;
   min-height: 100vh;
-  background-color: #282c34;
-  color: white;
+  color: #282c34;
 }
 
 .App-header {
@@ -31,16 +30,19 @@ button {
   font-size: 0.8rem;
   outline: none;
 }
-button:disabled {
-  color: #f3f3f3;
-  background-color: #444;
-  cursor: not-allowed;
+
+.create-user-button {
+  width: 50%;
+  height: 3rem;
+}
+
+.create-user-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .item {
   display: grid;
   grid-template-columns: 1fr auto auto;
-}
-h1 {
-  color: white;
+  border: 1px solid #ccc;
 }

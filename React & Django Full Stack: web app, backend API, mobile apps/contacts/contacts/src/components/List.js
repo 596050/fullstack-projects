@@ -1,12 +1,9 @@
 import React from 'react';
-import { API } from '../api-service';
 
 function List(props) {
   const handleRemove = item => {
     props.onRemove(item);
   };
-
-  console.log('List props:', props);
 
   return (
     <div>

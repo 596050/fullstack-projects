@@ -23,11 +23,11 @@ class User(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     username = models.CharField(max_length=32)
-    contact_1 = models.ForeignKey(
+    contact_1 = models.OneToOneField(
         Contact, on_delete=models.CASCADE, blank=True, null=True, default=None)
 
-    class Meta:
-        unique_together = ('username', 'contact_1')
+    # class Meta:
+    #     unique_together = ('username', 'contact_1')
 
     def __str__(self):
         return self.username

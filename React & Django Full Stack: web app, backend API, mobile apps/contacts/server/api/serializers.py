@@ -1,8 +1,6 @@
 from http.client import HTTPResponse
 from rest_framework import serializers
 from .models import User, Contact
-import uuid
-
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,7 +1,6 @@
 from django.db import models
 import uuid
 
-
 class Contact(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     email_1 = models.EmailField(unique=True)
@@ -25,9 +24,6 @@ class User(models.Model):
     username = models.CharField(max_length=32)
     contact_1 = models.OneToOneField(
         Contact, on_delete=models.CASCADE, blank=True, null=True, default=None)
-
-    # class Meta:
-    #     unique_together = ('username', 'contact_1')
 
     def __str__(self):
         return self.username

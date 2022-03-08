@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 import List from './components/List';
 import Form from './components/Form';
@@ -11,18 +11,13 @@ function App() {
   const [selected, setSelected] = useState(null);
   const [data, loading, error] = useFetch();
   const navigate = useNavigate();
-  let location = useLocation();
-
-  React.useEffect(() => {
-    console.log('location', location);
-  }, [location]);
 
   useEffect(() => {
     setUsers(data);
   }, [data]);
 
   const handleOnCreateNewUser = () => {
-    navigate('/create-user', { replace: true });
+    navigate('/create-user');
   };
 
   const handleCreate = user => {
@@ -47,23 +42,23 @@ function App() {
   if (error) return <h1>Error</h1>;
 
   return (
-    <div className="App">
+    <main className="App">
       <header className="App-header">
         <h1>
           <span>Contacts</span>
         </h1>
       </header>
-      <div className="layout">
-        <div>
-          <List users={users} onRemove={handleRemove} />
-        </div>
-      </div>
+      <br />
       <div className="create-user-button-container">
         <button className="create-user-button" onClick={handleOnCreateNewUser}>
           Create user
         </button>
       </div>
-    </div>
+      <br />
+      <div>
+        <List users={users} onRemove={handleRemove} />
+      </div>
+    </main>
   );
 }
 

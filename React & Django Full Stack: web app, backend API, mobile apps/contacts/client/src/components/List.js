@@ -6,12 +6,18 @@ function List(props) {
   };
 
   return (
-    <div>
+    <div className="layout">
       {props.users &&
         props.users.map(user => {
           return (
             <div key={user.id} className="item">
-              <h2>{user.username}</h2>
+              <div>
+                <h2>{user.username}</h2>
+                <p>first name: {user.first_name}</p>
+                <p>last name: {user.last_name}</p>
+                <p>email: {`${user.contact_1?.email_1}`}</p>
+                <p>phone: {`${user.contact_1?.phone_1}`}</p>
+              </div>
               <button onClick={() => handleRemove(user)}>Remove</button>
             </div>
           );

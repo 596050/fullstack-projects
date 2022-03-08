@@ -32,7 +32,9 @@ function Form(props) {
 
   const handleCreateClick = () => {
     API.createUser(data)
-      .then(response => {})
+      .then(response => {
+        navigate('/');
+      })
       .catch(error => console.error(error));
   };
 
@@ -44,12 +46,13 @@ function Form(props) {
         padding: '2rem',
       }}
     >
+      <h1>Create user</h1>
+      <br />
       <FormInputElement
         id="username"
         label="Username"
         onChange={handleChange}
       />
-      <br />
       <FormInputElement
         id="first_name"
         label="First name"

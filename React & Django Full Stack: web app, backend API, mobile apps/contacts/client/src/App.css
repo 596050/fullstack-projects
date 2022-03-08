@@ -13,7 +13,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
+  margin: 20px;
 }
+
 input,
 textarea {
   width: 100%;
@@ -21,6 +23,7 @@ textarea {
   margin: 8px 0;
   font-size: 0.8rem;
 }
+
 button {
   color: #444;
   background-color: #f3f3f3;
@@ -45,4 +48,5 @@ button {
   display: grid;
   grid-template-columns: 1fr auto auto;
   border: 1px solid #ccc;
+  padding: 1em;
 }

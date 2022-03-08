@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import get from 'lodash.get';
 import set from 'lodash.set';
 import merge from 'lodash.merge';
 
@@ -15,6 +14,18 @@ const FormInputElement = ({ id, label, type = 'text', onChange, value }) => {
     </>
   );
 };
+
+const formMetaData = [
+  { id: 'username', label: 'Username' },
+  { id: 'first_name', label: 'First name' },
+  { id: 'last_name', label: 'Last name' },
+  { id: 'contact_1.email_1', label: 'Email' },
+  { id: 'contact_1.phone_1', label: 'Phone' },
+  { id: 'contact_1.address_one', label: 'Address one' },
+  { id: 'contact_1.address_two', label: 'Address two' },
+  { id: 'contact_1.post_code', label: 'Postcode' },
+  { id: 'contact_1.city', label: 'City' },
+];
 
 function Form(props) {
   const [data, setData] = useState(null);
@@ -48,51 +59,15 @@ function Form(props) {
     >
       <h1>Create user</h1>
       <br />
-      <FormInputElement
-        id="username"
-        label="Username"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="first_name"
-        label="First name"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="last_name"
-        label="Last name"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.email_1"
-        label="Email"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.phone_1"
-        label="Phone"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.address_one"
-        label="Address one"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.address_two"
-        label="Address two"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.post_code"
-        label="Postcode"
-        onChange={handleChange}
-      />
-      <FormInputElement
-        id="contact_1.city"
-        label="City"
-        onChange={handleChange}
-      />
+      {formMetaData.map(({ id, label }) => (
+        <FormInputElement
+          key={id}
+          id={id}
+          label={label}
+          onChange={handleChange}
+        />
+      ))}
+
       <br />
       <button onClick={handleCreateClick} disabled={isDisabled}>
         Create

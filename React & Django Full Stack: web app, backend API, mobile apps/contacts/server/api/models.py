@@ -27,3 +27,15 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+
+    def delete(self, *args, **kwargs):
+
+        contact_1 = self.contact_1
+
+        response = super().delete(*args, **kwargs)
+
+        if contact_1:
+            contact_1.delete()
+
+        return response
+

@@ -1,4 +1,3 @@
-from http.client import HTTPResponse
 from rest_framework import serializers
 from .models import User, Contact
 
@@ -14,6 +13,8 @@ class ContactSerializer(serializers.ModelSerializer):
             "post_code",
             "city"
         ]
+
+
 
 
 class UserSerializer(serializers.ModelSerializer):

@@ -5,22 +5,15 @@ ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-COPY ./requirements.txt /requirements.txt
-RUN pip3 install -r /requirements.txt
+RUN mkdir /code
 
-RUN mkdir /api
-COPY ./api /api
+WORKDIR /code
 
-RUN mkdir /contacts
-COPY ./contacts /contacts
-
-COPY ./manage.py /manage.py
+COPY ./requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
 
 RUN adduser -D user
+
+RUN chown -R user .
+
 USER user
-
-RUN ls
-
-RUN python3 manage.py makemigrations && python3 manage.py migrate
-RUN python3 manage.py createsuperuser
-RUN python3 manage.py runserver 0.0.0.0:8000

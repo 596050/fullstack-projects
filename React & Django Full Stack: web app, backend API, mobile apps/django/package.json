@@ -5,11 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "python3 manage.py runserver",
-    "update-db": "python3 manage.py makemigrations && python3 manage.py migrate",
-    "activate-venv": "source react_django/bin/activate",
-    "server-create-super-user": "python3 manage.py createsuperuser"
+    "update-db": "cd server; python3 manage.py makemigrations && python3 manage.py migrate",
+    "activate-venv": "cd server; source venv/bin/activate",
+    "setup-server": "cd server; python3 -m venv venv && yarn activate-venv && python3 -m pip install django && python3 -m pip install djangorestframework && python3 -m pip install django-cors-headers",
+    "server-create-super-user": "cd server; python3 manage.py createsuperuser",
+    "start-server": "cd server; yarn activate-venv && yarn update-db && python3 manage.py runserver"
   },
   "author": "https://ultimatedjango.com/learn-django/lessons",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "contacts": "^1.0.0",
+    "create-react-app": "^5.0.0"
+  }
 }

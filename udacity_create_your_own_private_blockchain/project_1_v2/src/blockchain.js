@@ -84,9 +84,16 @@ class Blockchain {
       }
     })
       .catch(error => console.error("_addBlock ", error))
-      .then(block => {
+      .then(async block => {
         this.chain.push(block);
         this.height = this.chain.length - 1;
+
+        const errors = await this.validateChain();
+
+        if (errors.length) {
+          return reject(errors.join("\n"));
+        }
+
         return block;
       });
   }

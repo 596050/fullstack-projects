@@ -64,10 +64,11 @@ class Blockchain {
     let self = this;
     return new Promise(async (resolve, reject) => {
       const chainHeight = self.chain?.length;
-      if (!self.chain?.[chainHeight - 1]?.hash) {
-        return reject(new Error("Invalid block hash"));
+      if (self.chain?.length < 1 || !self.chain?.[chainHeight - 1]?.hash) {
+        block.previousBlockHash = null;
+      } else {
+        block.previousBlockHash = self.chain[chainHeight - 1].hash;
       }
-      block.previousBlockHash = self.chain[chainHeight - 1].hash;
       block.height = chainHeight;
       block.time = new Date().getTime().toString().slice(0, -3);
       block.hash = await SHA256(JSON.stringify(block)).toString();
@@ -193,7 +194,27 @@ class Blockchain {
   getStarsByWalletAddress(address) {
     let self = this;
     let stars = [];
-    return new Promise((resolve, reject) => {});
+    return new Promise(async (resolve, reject) => {
+      const errors = await this.validateChain();
+
+      if (errors.length) {
+        return reject(errors.join("\n"));
+      }
+
+      stars = self.chain
+        .filter(block => block.owner === address)
+        ?.map(block => JSON.parse(hex2ascii(block.body)));
+
+      if (!!stars) {
+        return resolve(stars);
+      }
+
+      return reject(new Error("Failed to get stars"));
+    })
+      .catch(error => console.error("getStarsByWalletAddress ", error))
+      .then(async block => {
+        return await self._addBlock(block);
+      });
   }
 
   /**
@@ -205,7 +226,33 @@ class Blockchain {
   validateChain() {
     let self = this;
     let errorLog = [];
-    return new Promise(async (resolve, reject) => {});
+    return new Promise(async (resolve, reject) => {
+      for (const block of self.chain) {
+        const isBlockValid = await block.validate();
+        if (isBlockValid && block.height > 0) {
+          const previousBlockHeight = block.height - 1;
+
+          let previousBlock = self.chain.filter(
+            b => b.height === previousBlockHeight,
+          )[0];
+
+          if (block?.previousBlockHash !== previousBlock?.hash) {
+            errorLog.push(
+              new Error(
+                `Invalid link: Block #${
+                  block.height
+                } not linked to the hash of block #${block.height - 1}.`,
+              ),
+            );
+          }
+        } else {
+          errorLog.push(
+            new Error(`Invalid block #${block.height}: ${block.hash}`),
+          );
+        }
+      }
+      errorLog.length > 0 ? resolve(errorLog) : resolve([]);
+    });
   }
 }
 

@@ -46,8 +46,11 @@ class ApplicationServer {
 
   start() {
     let self = this;
+    const address = "http://localhost:";
     this.app.listen(this.app.get("port"), () => {
-      console.log(`Server Listening for port: ${self.app.get("port")}`);
+      console.log(
+        `Server Listening for port: ${address}${self.app.get("port")}`,
+      );
     });
   }
 }

@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Udacity - jose.morales@udacity.com",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "bitcoinjs-lib": "^4.0.3",
